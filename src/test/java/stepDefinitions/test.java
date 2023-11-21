@@ -95,7 +95,6 @@ public class test {
     public void userSendPostRequestToTheApiForCreatingCompany() {
         response = blackKiteClients.postOperations(blackKiteClients.prop.getProperty("basePathForCompanies"),companyPayloads.createCompany(ecosystemPojo.getEcosystemId()),authPojo.getAccess_token());
         companiesPojo = response.getBody().as(CompaniesPojo.class);
-        System.out.println(response.asPrettyString());
     }
 
     @And("User verifies that company should be created")
@@ -107,7 +106,6 @@ public class test {
     public void userSearchesTheCompanyWhichIsCreated() {
         response = blackKiteClients.postOperations(blackKiteClients.prop.getProperty("basePathForCompaniesSearch"),companySearchPayloads.searchCompany(Collections.singletonList(ecosystemPojo.getEcosystemId())),authPojo.getAccess_token());
         companySearchPojo = response.getBody().as(CompanySearchPojo.class);
-        System.out.println(response.asPrettyString());
     }
 
     @And("User should gets the company info")
